@@ -1,0 +1,72 @@
+[System]
+Name='FIS_Game'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=10
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Harga'
+Range=[0 10]
+NumMFs=3
+MF1='Murah':'gaussmf',[1.77 -8.327e-17]
+MF2='Standar':'gaussmf',[1.77 5]
+MF3='Mahal':'gaussmf',[1.771 10]
+
+[Input2]
+Name='grafik'
+Range=[0 10]
+NumMFs=3
+MF1='Buruk':'gaussmf',[1.77 -8.327e-17]
+MF2='Biasa':'gaussmf',[1.77 5]
+MF3='Bagus':'gaussmf',[1.771 10]
+
+[Input3]
+Name='alur_cerita'
+Range=[0 10]
+NumMFs=3
+MF1='buruk':'gaussmf',[1.77 -8.327e-17]
+MF2='biasa':'gaussmf',[1.77 5]
+MF3='bagus':'gaussmf',[1.771 10]
+
+[Output1]
+Name='Ulasan_player'
+Range=[0 30]
+NumMFs=3
+MF1='tidak_puas':'trimf',[0 5 10]
+MF2='biasa':'trimf',[10 15 20]
+MF3='puas':'trimf',[20 25 30]
+
+[Output2]
+Name='rating'
+Range=[0 30]
+NumMFs=3
+MF1='rendah':'trimf',[0 5 10]
+MF2='sedang':'trimf',[10 15 20]
+MF3='tinggi':'trimf',[20 25 30]
+
+[Output3]
+Name='Popularitas'
+Range=[0 30]
+NumMFs=3
+MF1='buruk':'trimf',[0 5 10]
+MF2='biasa':'trimf',[10 15 20]
+MF3='baik':'trimf',[20 25 30]
+
+[Rules]
+3 1 1, 1 1 1 (1) : 1
+2 2 2, 2 2 2 (1) : 1
+1 3 3, 3 3 3 (1) : 1
+1 2 2, 3 2 2 (1) : 1
+1 1 1, 2 2 2 (1) : 1
+2 3 3, 3 2 3 (1) : 1
+2 2 3, 3 2 2 (1) : 1
+3 2 2, 1 2 2 (1) : 1
+3 3 1, 2 1 2 (1) : 1
+2 2 3, 3 2 2 (1) : 1
